@@ -12,8 +12,8 @@ Tagging.destroy_all
 TagTopic.destroy_all
 User.destroy_all
 
-u1 = User.create!(email: 'tennisb12@gmail.com')
-u2 = User.create!(email: 'sboginsky17@gmail.com')
+u1 = User.create!(email: 'abcdefg@gmail.com')
+u2 = User.create!(email: 'hello123@gmail.com')
 
 su1 = ShortenedUrl.create_for_user_and_long_url!(u1, 'https://stackoverflow.com/questions/34424154/rails-validate-uniqueness-of-two-columns-together')
 su2 = ShortenedUrl.create_for_user_and_long_url!(u2, 'https://gittobook.org/books/148/tech-interview-handbook')
