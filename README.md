@@ -15,6 +15,11 @@
   - `select`
     - `distinct` chained onto `select`
   - `where`
+  - `joins`
+  - `group`
+  - `limit`
+  - `order`
+    - Rails 6 will need us to wrap our raw SQL in `Arel.sql`
 - ActiveRecord time methods
   - Using the `created_at` column to interact with Time objects
 - `ActiveModel::EachValidator`

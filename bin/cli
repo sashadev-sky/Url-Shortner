@@ -3,6 +3,7 @@
 # note this code logic is kept separate from our models because it would not be reused in a web version of this app.
 # this file is for an exercise in creating a simple command-line script
 # it is not meant to be catch all input errors and does not have functionality for a User to sign up - only Users already added in the DB will be able to input their emails at the beginning prompt
+# also note CLI created before tag_topic and tagging models added 
 class CLI
 
   def run
