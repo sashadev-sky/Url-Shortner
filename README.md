@@ -1,6 +1,6 @@
 # URL Shortener
 
-A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for the user. Subsequent users can then give the short URL back to our tool and be redirected to the original URL.
+A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for the user. Subsequent users can then give the short URL back to the tool and be redirected to the original URL.
 
 ## Overview
 - Written in Ruby.
@@ -8,15 +8,15 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
 - To see how it works:
   - run `bundle install` from within the project directory.
   - run `rails runner bin/cli`.
-  - when prompted for an email, enter one of the emails already in the database, which you can find in `db/seeds.rb`.
+  - when prompted for an email: enter one of the emails already in the database, which you can find in `db/seeds.rb`.
 
 ## Features
-- tracks clickthroughs for business analytics.
-- allows users to choose from a set of predefined `TagTopic`s for links (e.g., news, music, etc.).
-  - allows users to search for the most visited links by topic.
-- spam protection: users cannot submit more than 5 URLs in a single minute.
-- a `premium` option is available for users: the number of total URLs non-premium users can submit is limited to 5.
-- stale URLs can be purged from the database with the `ShortenedUrl::prune` method or by running the Rake Task `prune` in `lib/tasks`.
+- Tracks clickthroughs for business analytics.
+- Allows users to choose from a set of predefined `TagTopic`s for links (e.g., news, music, etc.).
+  - Allows users to search for the most visited links by topic.
+- Spam protection: users cannot submit more than 5 URLs in a single minute.
+- A `premium` option is available for users: the number of total URLs non-premium users can submit is limited to 5.
+- Stale URLs can be purged from the database with the `ShortenedUrl::prune` method or by running the Rake Task `prune` in `lib/tasks`.
 
 ### Concepts (personal use)
 - building a CLI tool
@@ -45,4 +45,4 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
 - `ActiveModel::EachValidator`
   - custom url validation
 - `rails runner`: loads the Rails environment for us, so we'll be able to use classes without requiring them explicitly. It also connects to the DB so we can query tables
-- creating a 'Rake task'
+- creating a Rake task
