@@ -4,13 +4,15 @@
 - building a CLI tool
 - `launchy` gem: allows us to pop open the URL in the browser even though we have not built in the browser
 - Base64 encoding (`SecureRandom`)
+- Associations
+  - join table
+  - `dependent: :destroy`
 - ActiveRecord methods
   - `exists?`
   - `::create!` vs `::new` & `#save!`
 **-> use create instead of new/save syntax in factory methods because the other class calling the factory method will get returned to it a "true" instead of the object**
-- ActiveRecord relations
-  - join table
-  - `dependent: :destroy`
+- `ActiveRecord::Relation`
+  - lazy evaluation of `Relation` objects
 - `ActiveRecord::QueryMethods`
   - `select`
     - `distinct` chained onto `select`

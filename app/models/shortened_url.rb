@@ -15,6 +15,7 @@ class ShortenedUrl < ApplicationRecord
 
   validates :long_url, presence: true, url: true
   validates :short_url, presence: true, uniqueness: true
+  validate :no_spamming, :nonpremium_max
 
   belongs_to :submitter,
     class_name: 'User',
@@ -80,6 +81,31 @@ class ShortenedUrl < ApplicationRecord
       .where('created_at > ?', 10.minutes.ago)
       .distinct
       .count
+  end
+
+  private
+
+  def no_spamming
+    # we can chain the `where` queries methods because the contents of the Relation are not fetched until needed (laziness)
+    # since the first Relation returned by where is never evaluated, we can build a 2nd relation from it
+    last_minute = ShortenedUrl
+      .where('created_at >= ?', 1.minute.ago)
+      .where(submitter_id: submitter_id)
+      .length
+
+    errors[:maximum] << 'of five short urls per minute' if last_minute >= 5
+  end
+
+  def nonpremium_max
+    return if User.find(self.submitter_id).premium
+
+    number_of_urls = ShortenedUrl
+      .where(submitter_id: submitter_id)
+      .length
+
+    if number_of_urls >= 5
+      errors[:only] << 'premium members can create more than 5 short urls'
+    end
   end
 
 end

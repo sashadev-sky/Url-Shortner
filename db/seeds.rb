@@ -34,5 +34,3 @@ tt2 = TagTopic.create!(name: 'Movies')
 Tagging.create!(shortened_url: su1, tag_topic: tt1)
 Tagging.create!(shortened_url: su2, tag_topic: tt1)
 Tagging.create!(shortened_url: su3, tag_topic: tt2)
-
-# SELECT shortened_urls.id, long_url, short_url, submitter_id, visits.id, visits.user_id, visits.shortened_url_id, taggings.id, taggings.tag_topic_id, taggings.shortened_url_id FROM shortened_urls INNER JOIN visits ON visits.shortened_url_id = shortened_urls.id INNER JOIN taggings ON shortened_urls.id = taggings.shortened_url_id;
