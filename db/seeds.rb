@@ -30,6 +30,9 @@ Visit.record_visit!(u2, su3)
 
 tt1 = TagTopic.create!(name: 'Search')
 tt2 = TagTopic.create!(name: 'Movies')
+tt3 = TagTopic.create!(name: 'Music')
+tt4 = TagTopic.create!(name: 'Sports')
+tt5 = TagTopic.create!(name: 'News')
 
 Tagging.create!(shortened_url: su1, tag_topic: tt1)
 Tagging.create!(shortened_url: su2, tag_topic: tt1)
