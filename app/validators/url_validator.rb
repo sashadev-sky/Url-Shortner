@@ -5,7 +5,6 @@ require 'uri'
 
 # additional validation can be added server-side, but there will be a tradeoff with speed
 class UrlValidator < ActiveModel::EachValidator
-
   RESERVED_OPTIONS = [:schemes, :no_local]
 
    def initialize(options)
