@@ -31,10 +31,10 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
 - ActiveRecord methods
   - `exists?`
   - `::create!` vs `::new` & `#save!`
+  - `#attributes`
 **-> use create instead of new/save syntax in factory methods because the other class calling the factory method will get returned to it a "true" instead of the object**
-- `ActiveRecord::Relation`
-  - lazy evaluation of `Relation` objects
-- `ActiveRecord::QueryMethods`
+- lazy evaluation of `ActiveRecord::Relation` objects
+- ActiveRecord Query Interface
   - `select`
     - `distinct` chained onto `select`
   - `where`
@@ -48,5 +48,6 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
   - Using the `created_at` column to interact with Time objects
 - `ActiveModel::EachValidator`
   - custom url validation
+- client-side email validation
 - `rails runner`: loads the Rails environment for us, so we'll be able to use classes without requiring them explicitly. It also connects to the DB so we can query tables
-- creating a Rake task
+- creating a `Rake task`
