@@ -5,7 +5,7 @@ require 'uri'
 
 # additional validation can be added server-side, but there will be a tradeoff with speed
 class UrlValidator < ActiveModel::EachValidator
-  RESERVED_OPTIONS = [:schemes, :no_local]
+  # RESERVED_OPTIONS = [:schemes, :no_local]
 
    def initialize(options)
      options.reverse_merge!(schemes: %w(http https))
@@ -20,19 +20,11 @@ class UrlValidator < ActiveModel::EachValidator
      begin
        uri = URI.parse(value)
        unless uri && uri.host && schemes.include?(uri.scheme) && (!options.fetch(:no_local) || uri.host.include?('.'))
-         record.errors.add(attribute, :url, filtered_options(value))
+         record.errors.add(attribute, 'is an invalid URL')
        end
      rescue URI::InvalidURIError
-       record.errors.add(attribute, :url, filtered_options(value))
+       record.errors.add(attribute, 'is an invalid URL')
      end
-   end
-
-   protected
-
-   def filtered_options(value)
-     filtered = options.except(*RESERVED_OPTIONS)
-     filtered[:value] = value
-     filtered
    end
 
   end
