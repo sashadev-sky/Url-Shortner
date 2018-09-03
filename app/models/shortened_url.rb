@@ -74,7 +74,6 @@ class ShortenedUrl < ApplicationRecord
     visitors.count
   end
 
-  # same goes for this method
   def num_recent_uniques
     visits
       .select(:user_id)
