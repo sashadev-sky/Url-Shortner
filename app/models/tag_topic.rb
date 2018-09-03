@@ -25,11 +25,11 @@ class TagTopic < ApplicationRecord
   def popular_links
   # the join will only return the original attributes of the ShortenedUrl objects even though we put additional attributes in the select.
   # to access these additional attributes, we can call them on the results of the query.
-   shortened_urls_by_tag_topic = shortened_urls.joins(:visits)
-    .group(:long_url, :short_url)
-    .order(Arel.sql('COUNT(visits.id) DESC'))
-    .select('long_url, short_url, COUNT(visits.id) AS number_of_visits')
-    .limit(5)
+    shortened_urls.joins(:visits)
+      .group(:long_url, :short_url)
+      .order(Arel.sql('COUNT(visits.id) DESC'))
+      .select('long_url, short_url, COUNT(visits.id) AS number_of_visits')
+      .limit(5)
   end
 
 end
