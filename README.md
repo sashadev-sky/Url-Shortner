@@ -6,7 +6,10 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
 - Written in Ruby.
 - Uses the `launchy gem` to allow us to pop open the URL in the browser without actually building in the browser.
 - To see how it works:
+  - make sure PostgreSQL is running.
   - run `bundle install` from within the project directory.
+  - run `./setup`.
+    - if you get a permission error, run `chmod +x setup` and then `./setup` again.
   - run `rails runner bin/cli`.
   - when prompted for an email: enter one of the emails already in the database, which you can find in `db/seeds.rb`.
 
@@ -16,9 +19,9 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
   - Allows users to search for the most visited links by topic.
 - Spam protection: users cannot submit more than 5 URLs in a single minute.
 - A `premium` option is available for users: the number of total URLs non-premium users can submit is limited to 5.
-- Stale URLs can be purged from the database with the `ShortenedUrl::prune` method or by running the Rake Task `prune` in `lib/tasks`.
+- Stale URLs can be purged from the database with the `ShortenedUrl::prune` method or by running the Rake Task `prune.rake` in `lib/tasks`.
 
-### Concepts (personal use)
+#### Concepts (personal use)
 - building a CLI tool
 - `launchy` gem
 - Base64 encoding (`SecureRandom`)
@@ -35,6 +38,7 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
   - `select`
     - `distinct` chained onto `select`
   - `where`
+    - `find`, `find_by`, `find_by_#{attribute}`, etc. all return the first matching instance from the DB, `where` returns a collection of instances, regardless of the number.
   - `joins`
   - `group`
   - `limit`
