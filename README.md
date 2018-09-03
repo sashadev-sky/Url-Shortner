@@ -31,8 +31,8 @@ A simple CLI tool that takes in an arbitrarily-long URL and will shorten it for 
 - ActiveRecord methods
   - `exists?`
   - `::create!` vs `::new` & `#save!`
-  - `#attributes`
 **-> use create instead of new/save syntax in factory methods because the other class calling the factory method will get returned to it a "true" instead of the object**
+  - `#attributes`
 - lazy evaluation of `ActiveRecord::Relation` objects
 - ActiveRecord Query Interface
   - `select`
